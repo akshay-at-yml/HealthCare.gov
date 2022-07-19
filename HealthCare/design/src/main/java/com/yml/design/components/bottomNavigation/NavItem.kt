@@ -1,6 +1,6 @@
 package com.yml.design.components.bottomNavigation
 
-interface BottomNavigation {
+interface BottomNavDestination {
     fun title(): String = ""
     fun icon(): Int = -1
 }

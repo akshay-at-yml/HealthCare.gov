@@ -1,11 +1,11 @@
 package com.yml.healthcare.ui.theme
 
-import com.yml.design.components.bottomNavigation.BottomNavigation
+import com.yml.design.components.bottomNavigation.BottomNavDestination
 
 sealed class NavigationCommand(
     var route: String,
     var destination: String
-) : BottomNavigation {
+) : BottomNavDestination {
     object Splash : NavigationCommand("SplashRoute", "SplashDestination") {
         override fun title(): String {
             return "Launch"
