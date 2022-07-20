@@ -21,7 +21,7 @@ import com.yml.healthcare.ui.theme.NavigationCommand
 fun HealthcareNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavigationCommand.Splash.route
+        startDestination = NavigationCommand.Dashboard.route
     ) {
         onBoardingGraph()
         dashBoardGraph()

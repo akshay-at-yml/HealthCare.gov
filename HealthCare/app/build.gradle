@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'shot'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -71,4 +73,10 @@ dependencies {
      * Module Dependencies
      */
     implementation project(":design")
+
+    /**
+     * Showkase
+     */
+    implementation "com.airbnb.android:showkase:1.0.0-beta13"
+    kapt "com.airbnb.android:showkase-processor:1.0.0-beta13"
 }
