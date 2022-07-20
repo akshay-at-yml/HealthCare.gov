@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @ShowkaseComposable(name = "Bottom Tab Label")
+    @ShowkaseComposable(name = "Bottom Tab Label", group = "Greeting")
     @Composable
     fun ScaledGreeting() {
         HealthCareTheme {
