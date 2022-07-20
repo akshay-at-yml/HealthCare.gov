@@ -1,4 +1,4 @@
-package com.yml.healthcare.ui.theme
+package com.yml.design.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

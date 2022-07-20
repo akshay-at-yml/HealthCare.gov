@@ -1,10 +1,8 @@
 package com.yml.design.card
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -14,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.yml.design.elements.Tag
 
 @Composable
 fun HCard(
@@ -46,17 +45,7 @@ fun HCard(
             )
 
             if (!tag.isNullOrBlank()) {
-                Text(
-                    text = tag,
-                    modifier = Modifier
-                        .padding(top = 10.dp)
-                        .background(
-                            Color.Yellow,
-                            shape = RoundedCornerShape(corner = CornerSize(5.dp))
-                        )
-                        .padding(3.dp),
-                    style = TextStyle(color = Color.Black, fontSize = 12.sp)
-                )
+                Tag(text = tag, modifier = Modifier.padding(top = 10.dp))
             }
         }
     }
