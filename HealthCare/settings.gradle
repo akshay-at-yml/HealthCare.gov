@@ -14,8 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Health Care"
 include ':app'
-//include ':core'
+include ':core'
 include ':design'
-//include ':feature'
-//include ':feature:onboard'
-//include ':feature:dashboard'
+include ':feature'
+include ':feature:home'

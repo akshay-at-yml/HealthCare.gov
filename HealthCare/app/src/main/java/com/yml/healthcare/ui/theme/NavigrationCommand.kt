@@ -1,6 +1,6 @@
 package com.yml.healthcare.ui.theme
 
-import com.yml.design.components.bottomNavigation.BottomNavDestination
+import com.yml.design.bottomNavigation.BottomNavDestination
 
 sealed class NavigationCommand(
     var route: String,

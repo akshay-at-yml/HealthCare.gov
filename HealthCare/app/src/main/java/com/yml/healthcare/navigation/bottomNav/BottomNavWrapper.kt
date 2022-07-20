@@ -5,8 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.airbnb.android.showkase.annotation.ShowkaseComposable
-import com.yml.design.components.bottomNavigation.HealthCareBottomNavigation
+import com.yml.design.bottomNavigation.HealthCareBottomNavigation
 import com.yml.healthcare.ui.theme.NavigationCommand
 
 @Composable
