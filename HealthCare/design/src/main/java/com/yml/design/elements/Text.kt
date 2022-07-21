@@ -76,12 +76,12 @@ fun Tag(
     Text(
         text = text,
         modifier
-            .background(shape = RoundedCornerShape(5.dp), color = bgColor)
-            .padding(4.dp),
+            .background(shape = RoundedCornerShape(3.dp), color = bgColor)
+            .padding(2.dp),
         style = TextStyle(
             color = textColor,
             fontWeight = FontWeight.W500,
-            fontSize = 14.sp
+            fontSize = 12.sp
         )
     )
 }
