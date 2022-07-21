@@ -17,5 +17,5 @@ sealed class HomeUserIntent {
 sealed class HomeEffect {
     object NavigateToArticleDetail : HomeEffect()
 
-    class SnackMessage(message: String) : HomeEffect()
+    class SnackMessage(val message: String) : HomeEffect()
 }

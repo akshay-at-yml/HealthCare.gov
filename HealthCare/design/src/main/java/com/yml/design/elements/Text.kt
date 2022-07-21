@@ -11,6 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.yml.design.theme.JetBlack
 
 @Composable
 fun Header(text: String, modifier: Modifier = Modifier) {
@@ -39,13 +40,17 @@ fun SubHeading(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Description(text: String, modifier: Modifier = Modifier) {
+fun Description(
+    text: String,
+    modifier: Modifier = Modifier,
+    textColor: Color = JetBlack
+) {
     Text(
         text = text,
         modifier,
         style = TextStyle(
-            color = Color.DarkGray,
-            fontWeight = FontWeight.W500,
+            color = textColor,
+            fontWeight = FontWeight.Normal,
             fontSize = 14.sp
         )
     )

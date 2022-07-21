@@ -24,3 +24,12 @@ val JetBlack = Color(0xFF282120)
 val Yellow = Color(0xFFFAD02C)
 val YellowLoght = Color(0xFFF9EAC2)
 val Orange = Color(0xFFFFD898)
+
+
+/**
+ * Logo colors
+ */
+val CODGray = Color(0xFF0C0C0C)
+val BahamaBlue = Color(0xFF046494)
+val DoveGray = Color(0xFF656565)
+val MineShaft = Color(0xFF2C2C2C)

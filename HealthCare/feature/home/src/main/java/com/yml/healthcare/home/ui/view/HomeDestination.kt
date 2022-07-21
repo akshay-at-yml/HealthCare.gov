@@ -8,9 +8,9 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.yml.design.container.HCToolBarScreen
 import com.yml.design.error.ErrorWidget
 import com.yml.design.progress.HCProgressBar
-import com.yml.design.toolbar.HCToolBarScreen
 import com.yml.healthcare.home.R
 import com.yml.healthcare.home.ui.viewmodel.HomeEffect
 import com.yml.healthcare.home.ui.viewmodel.HomeUserIntent
@@ -35,24 +35,29 @@ private fun HomeDestination(
     effect: Flow<HomeEffect>,
     userIntent: (HomeUserIntent) -> Unit
 ) {
-
-    fun handleEffects(homeEffect: HomeEffect) {
-        // handle nav effects / show snack bar kind of implementations
-    }
-
-    LaunchedEffect(Unit) {
-        effect.collect {
-            handleEffects(it)
-        }
-    }
     val state = viewState.value
-
     HCToolBarScreen(
         title = state.screenTitle,
         leftIcon = com.yml.design.R.drawable.ic_menu_burger,
         headerImage = R.drawable.health_care_gov,
         modifier = Modifier.background(color = Color.White)
-    ) {
+    ) { modifier, snackMessage ->
+
+        fun handleEffects(homeEffect: HomeEffect) {
+            when (homeEffect) {
+                HomeEffect.NavigateToArticleDetail -> TODO()
+                is HomeEffect.SnackMessage -> {
+                    snackMessage(homeEffect.message)
+                }
+            }
+        }
+
+        LaunchedEffect(Unit) {
+            effect.collect {
+                handleEffects(it)
+            }
+        }
+
         when (state) {
             is HomeViewState.Error -> {
                 ErrorWidget(
@@ -66,7 +71,7 @@ private fun HomeDestination(
             }
 
             is HomeViewState.Loaded -> {
-                LoadedHomeScreen(it, state.list)
+                LoadedHomeScreen(modifier, state.list)
             }
 
             is HomeViewState.UnInitialized -> {

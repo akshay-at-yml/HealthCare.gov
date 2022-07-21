@@ -72,8 +72,10 @@ class HomeViewModel @Inject constructor(val homeRepository: HomeRepository) : Vi
     private fun handleUserIntent(intent: HomeUserIntent) {
         when (intent) {
             HomeUserIntent.FetchHomeData -> {
-                emitViewState {
-                    HomeViewState.InitialLoading()
+                // emit loading
+                emitViewState { HomeViewState.InitialLoading() }
+                sendNavEffect {
+                    HomeEffect.SnackMessage("Fetching Data")
                 }
                 viewModelScope.launch {
                     val list = homeRepository.fetchHomeData()

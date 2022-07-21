@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.yml.design.theme.BahamaBlue
 import com.yml.design.theme.JetBlack
-import com.yml.design.theme.Spearmint
 
 @Composable
 fun <T : BottomNavDestination> HealthCareBottomNavigation(
@@ -20,13 +20,13 @@ fun <T : BottomNavDestination> HealthCareBottomNavigation(
     BottomNavigation(
         elevation = 5.dp,
         backgroundColor = Color.White,
-        contentColor = Spearmint
+        contentColor = BahamaBlue
     ) {
         items.forEach {
             BottomNavigationItem(
                 icon = {
                     Icon(
-                        tint = if (isSelected(it)) Spearmint else JetBlack,
+                        tint = if (isSelected(it)) BahamaBlue else JetBlack,
                         painter = painterResource(id = it.icon()),
                         contentDescription = "" //TODO CDS
                     )
