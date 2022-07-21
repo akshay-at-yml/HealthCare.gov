@@ -52,7 +52,7 @@ private fun HomeDestination(
         fun handleEffects(homeEffect: HomeEffect) {
             when (homeEffect) {
                 is HomeEffect.NavigateToArticleDetail -> {
-                    navController.navigateToArticleDetail(homeEffect.url)
+                    navController.navigateToArticleDetail(homeEffect.url, "Article")
                 }
 
                 HomeEffect.ViewAllArticles -> {

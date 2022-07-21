@@ -12,7 +12,7 @@ class NavigationManager(
         controller.navigate(NavigationCommand.Articles.route)
     }
 
-    override fun navigateToArticleDetail(url: String) {
-        controller.navigate(NavigationCommand.WebView.route)
+    override fun navigateToArticleDetail(url: String, title: String) {
+        controller.navigate(NavigationCommand.WebView.route(url, title))
     }
 }

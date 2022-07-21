@@ -3,10 +3,10 @@ package com.yml.healthcare.home.ui.view
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidView
 import com.yml.design.container.HCToolBarScreen
+import javax.inject.Inject
 
 @Composable
 fun HCWebView(url: String, title: String) {

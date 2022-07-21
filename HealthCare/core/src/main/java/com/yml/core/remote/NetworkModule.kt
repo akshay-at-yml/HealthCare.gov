@@ -1,6 +1,7 @@
 package com.yml.core.remote
 
 import com.google.gson.Gson
+import com.yml.core.constants.NetworkConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,7 +39,7 @@ object NetworkModule {
     }
 
     @Provides
-    fun baseUrl() = "https://www.healthcare.gov/"
+    fun baseUrl() = NetworkConstants.API_END_POINT
 
     @Provides
     @Singleton

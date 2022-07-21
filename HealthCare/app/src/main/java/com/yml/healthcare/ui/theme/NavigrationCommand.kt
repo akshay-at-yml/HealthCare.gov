@@ -1,6 +1,9 @@
 package com.yml.healthcare.ui.theme
 
 import com.yml.design.bottomNavigation.BottomNavDestination
+import com.yml.healthcare.navigation.ArgumentId
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 
 /**
@@ -58,5 +61,17 @@ sealed class NavigationCommand(
 
     object Articles : NavigationCommand("ArticlesRoute")
 
-    object WebView : NavigationCommand("WebRoute")
+    object WebView :
+        NavigationCommand(
+            "WebView/{${ArgumentId.PATH}}?title={${ArgumentId.SCREEN_TITLE}}"
+        ) {
+        fun route(
+            path: String,
+            title: String = ""
+        ): String {
+            val encodedPath = URLEncoder.encode(path, StandardCharsets.UTF_8.toString())
+            return route.replace("{${ArgumentId.PATH}}", encodedPath)
+                .replace("{${ArgumentId.SCREEN_TITLE}}", title)
+        }
+    }
 }
