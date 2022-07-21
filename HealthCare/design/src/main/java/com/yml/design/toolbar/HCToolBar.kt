@@ -8,11 +8,11 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.yml.core.constants.Resource
 import com.yml.design.elements.Header
+import com.yml.design.theme.HotPink
 
 
 @Composable
@@ -33,7 +33,7 @@ fun HCToolBar(
     ) {
         Row(
             modifier = Modifier
-                .background(Color.White)
+                .background(HotPink)
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround

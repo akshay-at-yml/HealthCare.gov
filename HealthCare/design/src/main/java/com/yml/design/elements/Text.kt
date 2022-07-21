@@ -18,9 +18,9 @@ fun Header(text: String, modifier: Modifier = Modifier) {
         text = text,
         modifier,
         style = TextStyle(
-            color = Color.Black,
-            fontWeight = FontWeight.W500,
-            fontSize = 18.sp
+            color = Color.White,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp
         )
     )
 }

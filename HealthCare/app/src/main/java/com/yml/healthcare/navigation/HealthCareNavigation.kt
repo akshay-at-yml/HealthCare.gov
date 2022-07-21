@@ -11,22 +11,31 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.yml.healthcare.navigation.graphs.dashBoardGraph
 import com.yml.healthcare.navigation.graphs.onBoardingGraph
 import com.yml.healthcare.navigation.graphs.preferencesGraph
 import com.yml.healthcare.navigation.graphs.searchGraph
 import com.yml.healthcare.ui.theme.NavigationCommand
+import com.yml.launcher.SplashDestination
 
 @Composable
 fun HealthcareNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavigationCommand.Dashboard.route
+        startDestination = NavigationCommand.Splash.route
     ) {
-        onBoardingGraph()
+//        onBoardingGraph(navController)
         dashBoardGraph()
         preferencesGraph()
         searchGraph()
+
+        composable(NavigationCommand.Splash.route) {
+            SplashDestination {
+                navController.popBackStack() // splash should not be there in the back stack
+                navController.navigate(NavigationCommand.Dashboard.route)
+            }
+        }
     }
 }
 

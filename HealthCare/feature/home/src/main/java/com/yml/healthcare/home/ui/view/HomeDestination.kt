@@ -1,4 +1,4 @@
-package com.yml.healthcare.home.ui
+package com.yml.healthcare.home.ui.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import com.yml.design.error.ErrorData
 import com.yml.design.error.ErrorWidget
 import com.yml.design.toolbar.HCToolBarScreen
-import com.yml.healthcare.home.ui.view.LoadedHomeScreen
 import com.yml.healthcare.home.ui.viewmodel.HomeEffect
 import com.yml.healthcare.home.ui.viewmodel.HomeUserIntent
 import com.yml.healthcare.home.ui.viewmodel.HomeViewModel
@@ -47,7 +46,10 @@ private fun HomeDestination(
     }
     val state = viewState.value
 
-    HCToolBarScreen(title = state.screenTitle) {
+    HCToolBarScreen(
+        title = state.screenTitle,
+        modifier = Modifier.background(color = Color.White)
+    ) {
         when (state) {
             is HomeViewState.Error -> {
                 ErrorWidget(

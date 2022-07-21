@@ -23,7 +23,7 @@ fun HealthCareBottomNavWrapper(navHostController: NavHostController) {
 
 private fun bottomNavDestinations() = listOf(
     NavigationCommand.Dashboard,
-    NavigationCommand.Splash,
+//    NavigationCommand.Splash,
     NavigationCommand.Search,
     NavigationCommand.Preferences
 )

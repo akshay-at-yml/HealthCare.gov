@@ -9,7 +9,7 @@ import com.yml.healthcare.home.domain.model.Article
 
 fun ArticleListDTO.toArticleList(): List<Article> {
     return articles?.let { list ->
-        list.map { it.toArticle() }
+        list.filter { it.language == "en" }.map { it.toArticle() }
     } ?: listOf()
 }
 

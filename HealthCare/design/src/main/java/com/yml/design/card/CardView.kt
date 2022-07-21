@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yml.design.elements.Tag
 import com.yml.design.theme.Cream
+import com.yml.design.theme.HotPink
 import com.yml.design.theme.JetBlack
 import com.yml.design.theme.Rosewater
 
@@ -38,7 +39,7 @@ fun HCard(
             Text(
                 text = title,
                 modifier = Modifier,
-                style = TextStyle(color = JetBlack, fontSize = 16.sp)
+                style = TextStyle(color = HotPink, fontSize = 16.sp)
             )
 
             Text(

@@ -9,14 +9,10 @@ import com.yml.healthcare.home.domain.model.Article
 @Composable
 fun LoadedHomeScreen(modifier: Modifier, articles: List<Article>) {
     LazyColumn(modifier = modifier) {
-
         articles.forEach {
             item {
-
                 HCard(title = it.title, description = it.description)
             }
         }
-
     }
-
 }

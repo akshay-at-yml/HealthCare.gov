@@ -4,7 +4,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.yml.healthcare.home.ui.HomeDestination
+import com.yml.healthcare.home.ui.view.HomeDestination
 import com.yml.healthcare.home.ui.viewmodel.HomeViewModel
 import com.yml.healthcare.ui.theme.NavigationCommand
 
