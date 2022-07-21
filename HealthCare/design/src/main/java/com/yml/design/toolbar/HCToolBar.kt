@@ -42,7 +42,6 @@ fun HCToolBar(
                 .background(Color.White)
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
         ) {
             if (Resource.NONE != leftIcon) {
                 Icon(
@@ -52,6 +51,7 @@ fun HCToolBar(
             }
             if (Resource.NONE != headerImage) {
                 Image(
+                    modifier = Modifier.weight(1.0f),
                     painter = painterResource(headerImage),
                     contentDescription = "" // TODO CDS
                 )

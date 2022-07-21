@@ -38,7 +38,11 @@ fun HCToolBarScreen(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        HCToolBar(title = title, headerImage = headerImage)
+        HCToolBar(
+            title = title,
+            headerImage = headerImage,
+            leftIcon = leftIcon
+        )
 
         val state = remember { mutableStateOf("") }
 
