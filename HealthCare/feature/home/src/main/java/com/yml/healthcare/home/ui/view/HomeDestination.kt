@@ -71,7 +71,7 @@ private fun HomeDestination(
             }
 
             is HomeViewState.Loaded -> {
-                LoadedHomeScreen(modifier, state.list)
+                LoadedHomeScreen(modifier, state.data)
             }
 
             is HomeViewState.UnInitialized -> {

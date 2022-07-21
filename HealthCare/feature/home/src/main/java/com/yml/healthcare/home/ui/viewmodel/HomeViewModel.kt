@@ -2,10 +2,9 @@ package com.yml.healthcare.home.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yml.healthcare.home.domain.repository.HomeRepository
+import com.yml.healthcare.home.domain.usecase.HomeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(val homeRepository: HomeRepository) : ViewModel() {
+class HomeViewModel @Inject constructor(val homeUseCase: HomeUseCase) : ViewModel() {
 
 /*    // Create Initial State of View
     private val initialState: HomeViewState by lazy {  }*/
@@ -78,9 +77,9 @@ class HomeViewModel @Inject constructor(val homeRepository: HomeRepository) : Vi
                     HomeEffect.SnackMessage("Fetching Data")
                 }
                 viewModelScope.launch {
-                    val list = homeRepository.fetchHomeData()
+                    val homeData = homeUseCase.fetchHomeData()
                     emitViewState {
-                        HomeViewState.Loaded(list)
+                        HomeViewState.Loaded(homeData)
                     }
                 }
             }

@@ -19,6 +19,6 @@ fun HCButton(
             contentColor = color
         )
     ) {
-        Link(text = title)
+        Link(text = title) {}
     }
 }

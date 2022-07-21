@@ -21,8 +21,7 @@ class DesignModule : ShowkaseRootModule
 fun PreviewCard() {
     HCard(
         title = "Here is the title",
-        description = "this is description \nSecond line continued... Some text\nThird Line",
-        tag = "Article"
+        description = "this is description \nSecond line continued... Some text\nThird Line"
     )
 }
 

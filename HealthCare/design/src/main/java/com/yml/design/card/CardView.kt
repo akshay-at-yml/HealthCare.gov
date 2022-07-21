@@ -1,7 +1,8 @@
 package com.yml.design.card
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -13,22 +14,19 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yml.design.elements.Tag
-import com.yml.design.theme.Cream
 import com.yml.design.theme.HotPink
 import com.yml.design.theme.JetBlack
-import com.yml.design.theme.Rosewater
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HCard(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    tag: String? = "Sample"
+    tags: List<String>? = null
 ) {
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(10.dp),
+        modifier = modifier.padding(10.dp),
         shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp, bottomStart = 10.dp),
         elevation = 5.dp,
         backgroundColor = Color.White
@@ -49,13 +47,23 @@ fun HCard(
                 maxLines = 4
             )
 
-            if (!tag.isNullOrBlank()) {
-                Tag(
-                    text = tag,
-                    modifier = Modifier.padding(top = 10.dp),
-                    textColor = Rosewater,
-                    bgColor = Cream
-                )
+            /*  if (!tag.isNullOrBlank()) {
+                  Tag(
+                      text = tag,
+                      modifier = Modifier.padding(top = 10.dp),
+                      textColor = Rosewater,
+                      bgColor = Cream
+                  )
+              }*/
+
+            tags?.let { list ->
+                if (list.isNotEmpty()) {
+                    Row {
+                        list.subList(0, minOf(list.size, 2)).forEach {
+                            Tag(text = it)
+                        }
+                    }
+                }
             }
         }
     }
