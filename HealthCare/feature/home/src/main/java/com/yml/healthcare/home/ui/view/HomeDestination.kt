@@ -8,9 +8,10 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.yml.design.error.ErrorData
 import com.yml.design.error.ErrorWidget
+import com.yml.design.progress.HCProgressBar
 import com.yml.design.toolbar.HCToolBarScreen
+import com.yml.healthcare.home.R
 import com.yml.healthcare.home.ui.viewmodel.HomeEffect
 import com.yml.healthcare.home.ui.viewmodel.HomeUserIntent
 import com.yml.healthcare.home.ui.viewmodel.HomeViewModel
@@ -48,6 +49,8 @@ private fun HomeDestination(
 
     HCToolBarScreen(
         title = state.screenTitle,
+        leftIcon = com.yml.design.R.drawable.ic_menu_burger,
+        headerImage = R.drawable.health_care_gov,
         modifier = Modifier.background(color = Color.White)
     ) {
         when (state) {
@@ -59,11 +62,7 @@ private fun HomeDestination(
                 )
             }
             is HomeViewState.InitialLoading -> {
-                ErrorWidget(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.White), data = ErrorData.mockData
-                )
+                HCProgressBar()
             }
 
             is HomeViewState.Loaded -> {

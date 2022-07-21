@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_angle_left.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_cross.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_document.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_menu_burger.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_profile.xml" value="0.1" />
+        <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/design/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="..\:/Users/LATITUDE/AndroidStudioProjects/LiveProjects/HealthCare/feature/launcher/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/LATITUDE/AppData/Local/Android/Sdk/platforms/android-32/data/res/drawable-watch/sym_def_app_icon.xml" value="0.1" />
       </map>

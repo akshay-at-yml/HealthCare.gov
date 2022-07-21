@@ -1,6 +1,7 @@
 package com.yml.healthcare.ui.theme
 
 import com.yml.design.bottomNavigation.BottomNavDestination
+import com.yml.healthcare.R
 
 sealed class NavigationCommand(
     var route: String,
@@ -14,19 +15,31 @@ sealed class NavigationCommand(
 
     object Dashboard : NavigationCommand("DashBoardRoute", "DashBoardDestination") {
         override fun title(): String {
-            return "Home"
+            return "Dashboard"
+        }
+
+        override fun icon(): Int {
+            return com.yml.design.R.drawable.ic_home
         }
     }
 
     object Preferences : NavigationCommand("PreferenceRoute", "PreferenceDestination") {
         override fun title(): String {
-            return "Pref"
+            return "Preferences"
+        }
+
+        override fun icon(): Int {
+            return com.yml.design.R.drawable.ic_profile
         }
     }
 
     object Search : NavigationCommand("SearchRoute", "SearchDestination") {
         override fun title(): String {
             return "Search"
+        }
+
+        override fun icon(): Int {
+            return com.yml.design.R.drawable.ic_search
         }
     }
 }

@@ -18,7 +18,7 @@ fun Header(text: String, modifier: Modifier = Modifier) {
         text = text,
         modifier,
         style = TextStyle(
-            color = Color.White,
+            color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp
         )
@@ -37,6 +37,7 @@ fun SubHeading(text: String, modifier: Modifier = Modifier) {
         )
     )
 }
+
 @Composable
 fun Description(text: String, modifier: Modifier = Modifier) {
     Text(

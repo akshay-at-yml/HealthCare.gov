@@ -14,7 +14,7 @@ fun HealthCareBottomNavWrapper(navHostController: NavHostController) {
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     HealthCareBottomNavigation(
-        isSelected = { it.route == currentDestination?.route },
+        isSelected = { it.destination == currentDestination?.route },
         items = destinations
     ) {
         navHostController.navigate(route = it.route)
