@@ -1,7 +1,8 @@
-package com.yml.healthcare.home.viewmodel
+package com.yml.healthcare.home.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.yml.healthcare.home.domain.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -13,12 +14,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
+class HomeViewModel @Inject constructor(val homeRepository: HomeRepository) : ViewModel() {
 
-    // Create Initial State of View
-    private val initialState: HomeViewState by lazy { HomeViewState.UnInitialized }
+/*    // Create Initial State of View
+    private val initialState: HomeViewState by lazy {  }*/
 
-    private val _viewState: MutableStateFlow<HomeViewState> = MutableStateFlow(initialState)
+    private val _viewState: MutableStateFlow<HomeViewState> =
+        MutableStateFlow(HomeViewState.UnInitialized())
     val viewState get() = _viewState.asStateFlow()
 
     private val intent: MutableSharedFlow<HomeUserIntent> = MutableSharedFlow()
@@ -67,17 +69,16 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         viewModelScope.launch { _effect.send(effectValue) }
     }
 
-
     private fun handleUserIntent(intent: HomeUserIntent) {
         when (intent) {
             HomeUserIntent.FetchHomeData -> {
                 emitViewState {
-                    HomeViewState.InitialLoading
+                    HomeViewState.InitialLoading()
                 }
                 viewModelScope.launch {
-                    delay(3000)
+                    val list = homeRepository.fetchHomeData()
                     emitViewState {
-                        HomeViewState.Loaded()
+                        HomeViewState.Loaded(list)
                     }
                 }
             }

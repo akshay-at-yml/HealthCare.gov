@@ -2,10 +2,7 @@ package com.yml.design.toolbar
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -59,3 +56,23 @@ fun HCToolBar(
         }
     }
 }
+
+@Composable
+fun HCToolBarScreen(
+    modifier: Modifier = Modifier,
+    title: String,
+    @DrawableRes
+    leftIcon: Int = Resource.NONE,
+    @DrawableRes
+    rightIcon: Int = Resource.NONE,
+    onLeftIconClick: () -> Unit = {},
+    onRightIconClick: () -> Unit = {},
+    content: @Composable ColumnScope.(modifier: Modifier) -> Unit
+) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        HCToolBar(title = title)
+        // padding here is of the toolbar shadow
+        content(modifier.padding(top = 6.dp))
+    }
+}
+

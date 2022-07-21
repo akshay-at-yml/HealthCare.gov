@@ -48,28 +48,3 @@ fun ErrorWidget(
     }
 
 }
-
-@Composable
-fun FullScreenError(
-    modifier: Modifier = Modifier,
-    data: ErrorData = ErrorData.mockData,
-    screenTitle: String,
-    @DrawableRes
-    leftIcon: Int = Resource.NONE,
-    @DrawableRes
-    rightIcon: Int = Resource.NONE,
-    errorCTAClick: () -> Unit = {},
-    onLeftIconClick: () -> Unit = {},
-    onRightIconClick: () -> Unit = {}
-
-) {
-    Column(modifier = modifier.fillMaxSize()) {
-        HCToolBar(title = screenTitle)
-        ErrorWidget(
-            modifier = Modifier
-                .padding(top = 6.dp)
-                .fillMaxSize()
-                .background(Color.White), data = data
-        )
-    }
-}

@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.yml.healthcare.home.ui.HomeDestination
-import com.yml.healthcare.home.viewmodel.HomeViewModel
+import com.yml.healthcare.home.ui.viewmodel.HomeViewModel
 import com.yml.healthcare.ui.theme.NavigationCommand
 
 fun NavGraphBuilder.dashBoardGraph() {

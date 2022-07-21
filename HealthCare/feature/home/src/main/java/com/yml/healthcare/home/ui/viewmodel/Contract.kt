@@ -1,11 +1,12 @@
-package com.yml.healthcare.home.viewmodel
+package com.yml.healthcare.home.ui.viewmodel
 
 import com.yml.design.error.ErrorData
+import com.yml.healthcare.home.domain.model.Article
 
-sealed class HomeViewState {
-    object UnInitialized : HomeViewState()
-    object InitialLoading : HomeViewState()
-    class Loaded : HomeViewState()
+sealed class HomeViewState(val screenTitle: String = "Home") {
+    class UnInitialized : HomeViewState()
+    class InitialLoading : HomeViewState()
+    class Loaded(val list: List<Article>) : HomeViewState()
     class Error(val error: ErrorData) : HomeViewState()
 }
 

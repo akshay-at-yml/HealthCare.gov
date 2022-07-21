@@ -13,21 +13,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yml.design.elements.Tag
+import com.yml.design.theme.Cream
+import com.yml.design.theme.JetBlack
+import com.yml.design.theme.Rosewater
 
 @Composable
 fun HCard(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    tag: String? = null
+    tag: String? = "Sample"
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(10.dp),
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp, bottomStart = 10.dp),
         elevation = 5.dp,
-        backgroundColor = Color.Black
+        backgroundColor = Color.White
     ) {
         Column(
             modifier = Modifier.padding(10.dp)
@@ -35,17 +38,23 @@ fun HCard(
             Text(
                 text = title,
                 modifier = Modifier,
-                style = TextStyle(color = Color.White, fontSize = 16.sp)
+                style = TextStyle(color = JetBlack, fontSize = 16.sp)
             )
 
             Text(
                 text = description,
                 modifier = Modifier.padding(top = 10.dp),
-                style = TextStyle(color = Color.White, fontSize = 14.sp)
+                style = TextStyle(color = JetBlack, fontSize = 14.sp),
+                maxLines = 4
             )
 
             if (!tag.isNullOrBlank()) {
-                Tag(text = tag, modifier = Modifier.padding(top = 10.dp))
+                Tag(
+                    text = tag,
+                    modifier = Modifier.padding(top = 10.dp),
+                    textColor = Rosewater,
+                    bgColor = Cream
+                )
             }
         }
     }
