@@ -10,17 +10,18 @@ import com.yml.healthcare.home.ui.view.HCWebView
 import com.yml.healthcare.home.ui.view.HomeDestination
 import com.yml.healthcare.home.ui.viewmodel.articles.ArticleViewModel
 import com.yml.healthcare.home.ui.viewmodel.home.HomeViewModel
+import com.yml.healthcare.ui.theme.GraphRoute
 import com.yml.healthcare.ui.theme.NavigationCommand
 
-fun NavGraphBuilder.dashBoardGraph(navController: AppNavigator) {
+fun NavGraphBuilder.homeScreenGraph(navigator: AppNavigator) {
     navigation(
-        startDestination = NavigationCommand.Dashboard.destination,
-        route = NavigationCommand.Dashboard.route
+        startDestination = NavigationCommand.Dashboard.route,
+        route = GraphRoute.Home.route // to be used by the Nav host if keeping start destination, can redirect to this graph
     ) {
 
-        composable(NavigationCommand.Dashboard.destination) {
+        composable(route = NavigationCommand.Dashboard.route) {
             val viewModel = hiltViewModel<HomeViewModel>()
-            HomeDestination(viewModel = viewModel, navController)
+            HomeDestination(viewModel = viewModel, navigator)
         }
 
         composable(NavigationCommand.Articles.route) {

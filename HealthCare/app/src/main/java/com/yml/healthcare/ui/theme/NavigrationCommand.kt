@@ -1,19 +1,32 @@
 package com.yml.healthcare.ui.theme
 
 import com.yml.design.bottomNavigation.BottomNavDestination
-import com.yml.healthcare.R
 
+
+/**
+ * Represents Nav Graph routes
+ */
+sealed class GraphRoute(val route: String) {
+    object Root : GraphRoute("RootGraph")
+    object Home : GraphRoute("HomeGraph")
+    object Search : GraphRoute("SearchGraph")
+    object Settings : GraphRoute("SettingsGraph")
+}
+
+/**
+ * Represents Each screen routes
+ */
 sealed class NavigationCommand(
-    var route: String,
-    var destination: String
+    // route represents each destinations
+    var route: String
 ) : BottomNavDestination {
-    object Splash : NavigationCommand("SplashRoute", "SplashDestination") {
+    object Splash : NavigationCommand("SplashRoute") {
         override fun title(): String {
             return "Launch"
         }
     }
 
-    object Dashboard : NavigationCommand("DashBoardRoute", "DashBoardDestination") {
+    object Dashboard : NavigationCommand("DashBoardRoute") {
         override fun title(): String {
             return "Dashboard"
         }
@@ -23,7 +36,7 @@ sealed class NavigationCommand(
         }
     }
 
-    object Preferences : NavigationCommand("PreferenceRoute", "PreferenceDestination") {
+    object Preferences : NavigationCommand("PreferenceRoute") {
         override fun title(): String {
             return "Preferences"
         }
@@ -33,7 +46,7 @@ sealed class NavigationCommand(
         }
     }
 
-    object Search : NavigationCommand("SearchRoute", "SearchDestination") {
+    object Search : NavigationCommand("SearchRoute") {
         override fun title(): String {
             return "Search"
         }
@@ -43,7 +56,7 @@ sealed class NavigationCommand(
         }
     }
 
-    object Articles : NavigationCommand("ArticlesRoute", "ArticlesDestination")
+    object Articles : NavigationCommand("ArticlesRoute")
 
-    object WebView : NavigationCommand("WebRoute", "WebDestination")
+    object WebView : NavigationCommand("WebRoute")
 }

@@ -9,10 +9,10 @@ import com.yml.launcher.SplashDestination
 
 fun NavGraphBuilder.onBoardingGraph(navController: NavHostController) {
     navigation(
-        startDestination = NavigationCommand.Splash.destination,
+        startDestination = NavigationCommand.Splash.route,
         route = NavigationCommand.Splash.route
     ) {
-        composable(NavigationCommand.Splash.destination) {
+        composable(NavigationCommand.Splash.route) {
             SplashDestination {
                 navController.navigate(NavigationCommand.Dashboard.route)
             }
