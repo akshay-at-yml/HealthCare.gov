@@ -42,4 +42,8 @@ sealed class NavigationCommand(
             return com.yml.design.R.drawable.ic_search
         }
     }
+
+    object Articles : NavigationCommand("ArticlesRoute", "ArticlesDestination")
+
+    object WebView : NavigationCommand("WebRoute", "WebDestination")
 }

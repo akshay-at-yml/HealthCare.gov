@@ -8,22 +8,27 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.yml.core.navigation.AppNavigator
 import com.yml.design.container.HCToolBarScreen
 import com.yml.design.error.ErrorWidget
 import com.yml.design.progress.HCProgressBar
 import com.yml.healthcare.home.R
-import com.yml.healthcare.home.ui.viewmodel.HomeEffect
-import com.yml.healthcare.home.ui.viewmodel.HomeUserIntent
-import com.yml.healthcare.home.ui.viewmodel.HomeViewModel
-import com.yml.healthcare.home.ui.viewmodel.HomeViewState
+import com.yml.healthcare.home.ui.viewmodel.home.HomeEffect
+import com.yml.healthcare.home.ui.viewmodel.home.HomeUserIntent
+import com.yml.healthcare.home.ui.viewmodel.home.HomeViewState
+import com.yml.healthcare.home.ui.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun HomeDestination(viewModel: HomeViewModel) {
+fun HomeDestination(
+    viewModel: HomeViewModel,
+    navController: AppNavigator
+) {
     val homeState = viewModel.viewState.collectAsState()
     HomeDestination(
         viewState = homeState,
-        effect = viewModel.homeEffect
+        effect = viewModel.homeEffect,
+        navController
     ) {
         viewModel.performAction(it)
     }
@@ -33,6 +38,7 @@ fun HomeDestination(viewModel: HomeViewModel) {
 private fun HomeDestination(
     viewState: State<HomeViewState>,
     effect: Flow<HomeEffect>,
+    navController: AppNavigator,
     userIntent: (HomeUserIntent) -> Unit
 ) {
     val state = viewState.value
@@ -45,10 +51,18 @@ private fun HomeDestination(
 
         fun handleEffects(homeEffect: HomeEffect) {
             when (homeEffect) {
-                HomeEffect.NavigateToArticleDetail -> TODO()
+                is HomeEffect.NavigateToArticleDetail -> {
+                    navController.navigateToArticleDetail(homeEffect.url)
+                }
+
+                HomeEffect.ViewAllArticles -> {
+                    navController.navigateToArticleList()
+                }
+
                 is HomeEffect.SnackMessage -> {
                     snackMessage(homeEffect.message)
                 }
+                else -> {}
             }
         }
 
@@ -71,12 +85,13 @@ private fun HomeDestination(
             }
 
             is HomeViewState.Loaded -> {
-                LoadedHomeScreen(modifier, state.data)
+                LoadedHomeScreen(modifier, state.data, userIntent)
             }
 
             is HomeViewState.UnInitialized -> {
                 userIntent(HomeUserIntent.FetchHomeData)
             }
+            else -> {}
         }
     }
 }

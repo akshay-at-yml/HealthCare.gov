@@ -3,7 +3,6 @@ package com.yml.healthcare
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.compose.rememberNavController
 import com.karumi.shot.ScreenshotTest
-import com.yml.healthcare.navigation.HealthcareNavHost
 import com.yml.healthcare.navigation.bottomNav.HealthCareBottomNavWrapper
 import org.junit.Rule
 import org.junit.Test
@@ -24,7 +23,7 @@ class MainActivityTest : ScreenshotTest {
     @Test
     fun ScreenTestTest() {
         composeRule.setContent {
-            HealthcareNavHost(rememberNavController())
+//            HealthcareNavHost(rememberNavController())
         }
         compareScreenshot(composeRule)
     }

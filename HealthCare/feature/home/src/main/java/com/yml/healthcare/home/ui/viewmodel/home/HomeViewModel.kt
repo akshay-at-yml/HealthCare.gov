@@ -1,4 +1,4 @@
-package com.yml.healthcare.home.ui.viewmodel
+package com.yml.healthcare.home.ui.viewmodel.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -83,6 +83,20 @@ class HomeViewModel @Inject constructor(val homeUseCase: HomeUseCase) : ViewMode
                     }
                 }
             }
+
+            HomeUserIntent.ViewAllArticles -> {
+                sendNavEffect {
+                    HomeEffect.ViewAllArticles
+                }
+            }
+
+            is HomeUserIntent.NavigateToArticleDetail -> {
+                sendNavEffect {
+                    HomeEffect.NavigateToArticleDetail(intent.url)
+                }
+            }
+
+            else -> {}
         }
     }
 

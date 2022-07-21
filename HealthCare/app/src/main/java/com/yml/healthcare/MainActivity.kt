@@ -22,13 +22,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.airbnb.android.showkase.annotation.ShowkaseComposable
+import com.yml.core.navigation.AppNavigator
 import com.yml.healthcare.navigation.HealthcareNavHost
 import com.yml.healthcare.navigation.bottomNav.HealthCareBottomNavWrapper
 import com.yml.design.theme.HealthCareTheme
+import com.yml.healthcare.navigation.NavigationManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
+    lateinit var appNavigator: AppNavigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,6 +43,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val navController = rememberNavController()
+            appNavigator = NavigationManager(navController)
             HealthCareTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -46,7 +53,7 @@ class MainActivity : ComponentActivity() {
                     Scaffold(bottomBar = {
                         HealthCareBottomNavWrapper(navHostController = navController)
                     }) {
-                        HealthcareNavHost(navController = navController)
+                        HealthcareNavHost(navController = navController, appNavigator)
                     }
                 }
             }
